@@ -1,5 +1,5 @@
 ## clipboard
-![](https://github.com/CL-window/Clicpboard/clipboard.gif)
+![](https://github.com/CL-window/Clicpboard/raw/master/clipboard.gif)
 
 API : https://developer.android.com/guide/topics/text/copy-paste.html
 持三种格式
