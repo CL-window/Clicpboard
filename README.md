@@ -7,7 +7,7 @@ https://developer.android.com/guide/topics/text/copy-paste.html
 使用 ,主要用到 ClipboardManager  https://developer.android.com/reference/android/content/ClipboardManager.html
 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 然后创建一个 ClipData 对象， ClipData.Item 包含  text, URI, or Intent data;
-复制数据至 ClipData:
+## 复制数据至 ClipData:
     For text:
     ClipData clip = ClipData.newPlainText(label, text);
     For a URI:
@@ -17,7 +17,7 @@ ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOA
 将ClipData赋值给clipboard
     clipboard.setPrimaryClip(clip);
 
-从 clipboard 得到数据
+## 从 clipboard 得到数据
     ClipboardManager中有很多判断与操作方法：
     getPrimaryClip()	            返回剪贴板上的当前Copy内容
     getPrimaryClipDescription()	    返回剪贴板上的当前Copy的说明
