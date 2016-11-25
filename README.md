@@ -1,5 +1,6 @@
 ## clipboard
-https://developer.android.com/guide/topics/text/copy-paste.html
+![](https://github.com/xxxxxxxxxxx/clipboard.gif)
+API : https://developer.android.com/guide/topics/text/copy-paste.html
 支持三种格式
     Text    String
     URI     一个URI
@@ -8,12 +9,14 @@ https://developer.android.com/guide/topics/text/copy-paste.html
 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 然后创建一个 ClipData 对象， ClipData.Item 包含  text, URI, or Intent data;
 ## 复制数据至 ClipData:
+` ``
     For text:
     ClipData clip = ClipData.newPlainText(label, text);
     For a URI:
     ClipData clip = ClipData.newUri(resolver, label, URI);
     For an Intent:
     ClipData clip = ClipData.newIntent(label, intent);// intent = new Intent(this, xxx.class)
+` ``
 将ClipData赋值给clipboard
     clipboard.setPrimaryClip(clip);
 
@@ -25,10 +28,11 @@ ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOA
     setPrimaryClip(ClipData clip)	设置剪贴板上的当前Copy
     setText(CharSequence text)	    设置文本到当前Copy
     getText()	                    获取剪贴板复制的文本
-Text:
-第一步,得到全局的ClipboardManager
+### Text:
+#### 第一步,得到全局的ClipboardManager
     ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-第二步,开启或关闭"paste"选项,判断clipboard是否有ClipData
+#### 第二步,开启或关闭"paste"选项,判断clipboard是否有ClipData
+` ``
     // Gets the ID of the "paste" menu item
     MenuItem mPasteItem = menu.findItem(R.id.menu_paste);
 
@@ -45,7 +49,9 @@ Text:
         // This enables the paste menu item, since the clipboard contains plain text.
         mPasteItem.setEnabled(true);
     }
-第三步,复制数据
+` ``
+#### 第三步,复制数据
+` ``
     // Examines the item on the clipboard. If getText() does not return null, the clip item contains the
     // text. Assumes that this application can only handle one item at a time.
      ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
@@ -70,8 +76,9 @@ Text:
         return;
         }
     }
-
-URI:步骤类似
+` ``
+### URI:步骤类似
+` ``
     ClipData clip = clipboard.getPrimaryClip();
     if (clip != null) {
         // Gets the first item from the clipboard data
@@ -101,7 +108,9 @@ URI:步骤类似
              }
          }
     }
-Intent:
+` ``
+### Intent:
+` ``
     // Checks to see if the clip item contains an Intent, by testing to see if getIntent() returns null
     Intent pasteIntent = clipboard.getPrimaryClip().getItemAt(0).getIntent();
     if (pasteIntent != null) {
@@ -110,4 +119,5 @@ Intent:
         // ignore the clipboard, or issue an error if your application was expecting an Intent to be
         // on the clipboard
     }
+` `` 
 一路看下来,好像是一路判断就行,就三种,得到的数据判断一下是否为空,就是这种数据

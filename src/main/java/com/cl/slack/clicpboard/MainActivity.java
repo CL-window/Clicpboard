@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
 //                            e.printStackTrace();
 //                        }
                         startActivity(pasteIntent);
-
                     } else {
                         Log.i(TAG,"PrimaryClip data invalid ...");
                     }
@@ -94,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Log.i(TAG,"no PrimaryClip...");
         }
+
     }
 
     private void addClipData(){
